@@ -26,7 +26,7 @@ const Hero = () => {
                 </p>
                 <Link
                     to='projects'
-                    className='text-neutral-100 font-semibold px-6 py-3 bg-red-600 rounded shadow hover:bg-red-700 select-none'
+                    className='text-neutral-100 font-semibold px-6 py-3 bg-red-600 rounded shadow hover:bg-red-700 cursor-pointer'
                     activeClass='active'
                     spy={true}
                     smooth={true}
@@ -46,7 +46,7 @@ const Hero = () => {
                 offset={-100}
                 duration={500}
             >
-                <HiArrowDown size={35} className='animate-bounce' />
+                <HiArrowDown size={35} className='animate-bounce cursor-pointer' />
             </Link>
         </div>
     </section>

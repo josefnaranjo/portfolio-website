@@ -65,7 +65,7 @@ const About = () => {
                         {mySkills.map((item, index) => (
                             <p 
                                 key={index} 
-                                className='bg-gray-200 px-4 py-2 mr-2 mt-2 text-gray-500 rounded font-semibold transform transition-transform duration-200 hover:scale-110 hover:bg-red-300'
+                                className='bg-gray-200 px-4 py-2 mr-2 mt-2 text-gray-500 rounded font-semibold transform transition-transform duration-200 hover:scale-110 hover:bg-red-300 select-none'
                             >
                                 {item.skill}
                             </p>

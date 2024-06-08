@@ -58,7 +58,7 @@ export default function Navbar() {
                                     key={index}
                                     to={item.page}
                                     className={
-                                        'block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100'
+                                        'block lg:inline-block text-neutral-900  hover:text-neutral-500 dark:text-neutral-100 cursor-pointer'
                                       }
                                     activeClass='active'
                                     spy={true}
