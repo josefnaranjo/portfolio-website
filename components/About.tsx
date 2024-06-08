@@ -2,27 +2,31 @@ import React from 'react'
 import Image from 'next/image'
 
 const mySkills = [
-    { skill: "ReactJS"},
-    { skill: "NextJS"},
-    { skill: "NodeJS"},
-    { skill: "ExpressJS"},
-    { skill: "HTML"},
-    { skill: "CSS"},
-    { skill: "JavaScript"},
-    { skill: "TypeScript"},
-    { skill: "Tailwind"},
-    { skill: "Figma"},
-    { skill: "WordPress"},
-    { skill: "Python"},
-    { skill: "MySQL"},
-    { skill: "RESTful APIs"},
-    { skill: "MongoDB"},
-    { skill: "PostgreSQL"},
-    { skill: "Bash/Shell"},
-    { skill: "Jupyter Notebooks"},
-    { skill: "NetworkX"},
-    { skill: "Linux"},
-    { skill: "Git"},
+    { skill: "ReactJS" },
+    { skill: "NextJS" },
+    { skill: "NodeJS" },
+    { skill: "ExpressJS" },
+    { skill: "HTML" },
+    { skill: "CSS" },
+    { skill: "JavaScript" },
+    { skill: "TypeScript" },
+    { skill: "Tailwind" },
+    { skill: "Figma" },
+    { skill: "WordPress" },
+    { skill: "Python" },
+    { skill: "MySQL" },
+    { skill: "RESTful APIs" },
+    { skill: "MongoDB" },
+    { skill: "PostgreSQL" },
+    { skill: "Bash/Shell" },
+    { skill: "Jupyter Notebooks" },
+    { skill: "NetworkX" },
+    { skill: "Pandas" },
+    { skill: "NumPy Arrays" },
+    { skill: "PyTorch" },
+    { skill: "BeautifulSoup"} ,
+    { skill: "Linux" },
+    { skill: "Git" },
 ]
 
 const About = () => {
@@ -44,9 +48,10 @@ const About = () => {
                         first-gen software developer based in the Central Valley of California.
                     </p><br />
                     <p>
-                        I completed my Bachelor of Science in Computer Science at California State University, Stanislaus 
-                        in December 2023. Since April 2024, I have been working as a Full-Stack Software Developer at 
-                        Bay Valley Foundation in Modesto, CA.
+                        I received my Bachelor of Science in Computer Science from California State University, Stanislaus, in 
+                        December 2023. During my time at the university, I worked as an <span className='font-bold text-red-500'>undergraduate research associate </span> in the 
+                        computer science department, where I focused on artificial intelligence, data science, and neural networks. 
+                        From April 2024, I have been employed as a <span className='font-bold text-red-500'>Full-Stack Software Developer </span> at Bay Valley Foundation in Modesto, CA.
                     </p><br />
                     <p>
                         Not everything in life is about programming, though. I also enjoy learning about new emerging technologies 
