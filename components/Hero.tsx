@@ -17,11 +17,11 @@ const Hero = () => {
                     height={300} />
             </div>
             <div className='md:mt-2 md:w-3/5'>
-                <h1 className='font-bold text-4xl mt-6 md:text-7xl md:mt-0'>Hello, I'm Jose!</h1>
+                <h1 className='font-bold text-4xl mt-6 md:text-7xl md:mt-0'>Hello, I&apos;m Jose!</h1>
                 <p className='text-lg mt-4 mb-6 md:text-2xl'>
-                    I'm a <span className='font-semibold text-red-500'>Full-Stack Software Developer {" "}</span>
+                    I am a <span className='font-semibold text-red-500'>Full-Stack Software Developer {" "}</span>
                     based in the San Joaquin county, CA. I am dedicated to crafting innovative software solutions 
-                    that make a meaningful difference in the lives of Californians. Let's work together to create 
+                    that make a meaningful difference in the lives of Californians. Let&apos;s work together to create 
                     impactful change through technology.
                 </p>
                 <Link

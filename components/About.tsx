@@ -61,7 +61,7 @@ const About = () => {
                     <p>
                         My passion for technology has led me to incredible <span className='font-bold text-red-500'>learning </span>
                         and <span className='font-bold text-red-500'>growth</span>, shaping me into a better technologist. 
-                        I am excited to see where this passion will lead me, as I'm open to new opportunities.
+                        I am excited to see where this passion will lead me, as I&apos;m open to new opportunities.
                     </p><br />
                 </div>
                 <div className='md:w-1/2'>
