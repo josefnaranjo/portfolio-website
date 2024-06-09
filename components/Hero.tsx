@@ -21,7 +21,7 @@ const Hero = () => {
                 <p className='text-lg mt-4 mb-6 md:text-2xl'>
                     I am a <span className='font-semibold text-red-500'>Full-Stack Software Developer {" "}</span>
                     based in San Joaquin county, CA. I am dedicated to crafting innovative software solutions 
-                    that make a meaningful difference in Californian's lives. Let&apos;s work together to create 
+                    that make a meaningful difference in Californian&apos;s lives. Let&apos;s work together to create 
                     impactful change through technology.
                 </p>
                 <Link
