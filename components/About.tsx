@@ -73,8 +73,8 @@ const About = () => {
               <span className="font-bold text-red-500">
                 Full-Stack Software Developer{" "}
               </span>{" "}
-              at Bay Valley Tech in Modesto, CA. This non-profit organization's
-              mission is to support their community's growth and development in
+              at Bay Valley Tech in Modesto, CA. This non-profit organization&apos;s
+              mission is to support their community&apos;s growth and development in
               the technological field.
             </p>
             <br />
