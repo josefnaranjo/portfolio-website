@@ -63,17 +63,19 @@ const About = () => {
             <p>
               I received my Bachelor of Science in Computer Science from
               California State University, Stanislaus, in December 2023. During
-              my time at the university, I worked as an{" "}
+              my time at college, I worked as an{" "}
               <span className="font-bold text-red-500">
                 undergraduate research associate{" "}
               </span>{" "}
               in the computer science department, where I focused on artificial
-              intelligence, data science, and neural networks. From April 2024,
-              I have been employed as a{" "}
+              intelligence, data science, and neural networks. Since February
+              2024, I have worked as a{" "}
               <span className="font-bold text-red-500">
                 Full-Stack Software Developer{" "}
               </span>{" "}
-              at Bay Valley Foundation in Modesto, CA.
+              at Bay Valley Tech in Modesto, CA. This non-profit organization's
+              mission is to support their community's growth and development in
+              the technological field.
             </p>
             <br />
             <p>
