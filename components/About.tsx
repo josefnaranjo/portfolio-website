@@ -2,8 +2,13 @@ import React from "react";
 import Image from "next/image";
 
 const mySkills = [
-  { skill: ".NET CLI" },
-  { skill: "ASP .NET Core" },
+  { skill: ".NET Framework" },
+  { skill: "ASP.NET Core" },
+  { skill: "ASP.NET MVC" },
+  { skill: "AJAX" },
+  { skill: "JSX" },
+  { skill: "jQuery" },
+  { skill: "C#" },
   { skill: "ReactJS" },
   { skill: "NextJS" },
   { skill: "NodeJS" },
