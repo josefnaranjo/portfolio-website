@@ -7,6 +7,14 @@ import { AiFillGoogleSquare } from "react-icons/ai";
 
 const myProjects = [
   {
+    name: "Communication Web Platform",
+    description:
+      "A full-stack communication platform developed with Next.js, PostgreSQL, Tailwind and Typescript, featuring Google Auth and Cloudinary integration.",
+    image: "/MLM_WebApp0.png",
+    platform: "https://github.com/Bay-Valley-Tech-Code-Academy/ReactFullstackApp_MLM",
+    link: "https://mlm-comm-app.vercel.app/",
+  },
+  {
     name: "FireTube Video",
     description:
       "A full-stack web application developed using the MERN stack featuring JWT user verification and cookie authentication 💻",
