@@ -10,7 +10,7 @@ const myProjects = [
     name: "Communication Web Platform",
     description:
       "A full-stack communication platform developed with Next.js, PostgreSQL, Tailwind and Typescript, featuring Google Auth and Cloudinary integration 💻",
-    image:"/webApp0.png",
+    image:"/webApp0.jpg",
     platform: "https://github.com/Bay-Valley-Tech-Code-Academy/ReactFullstackApp_MLM",
     link: "https://mlm-comm-app.vercel.app/",
   },
