@@ -87,6 +87,7 @@ const About = () => {
               organization&apos;s mission is to support their community&apos;s
               growth and development in the technological field.
             </p>
+            <br />
             <p>
               I also worked as a{" "}
               <span className="font-bold text-red-500">
