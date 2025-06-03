@@ -24,19 +24,24 @@ const mySkills = [
   { skill: "WordPress" },
   { skill: "Python" },
   { skill: "MySQL" },
+  { skill: "PostgreSQL" },
+  { skill: "MongoDB" },
   { skill: "RESTful APIs" },
   { skill: "API Integration" },
-  { skill: "MongoDB" },
-  { skill: "PostgreSQL" },
   { skill: "Bash/Shell" },
-  { skill: "Jupyter Notebooks" },
-  { skill: "NetworkX" },
-  { skill: "Pandas" },
-  { skill: "NumPy Arrays" },
-  { skill: "PyTorch" },
-  { skill: "BeautifulSoup" },
   { skill: "Linux" },
   { skill: "Git" },
+  { skill: "Jupyter" },
+  { skill: "NumPy" },
+  { skill: "Pandas" },
+  { skill: "PyTorch" },
+  { skill: "NetworkX" },
+  { skill: "BeautifulSoup" },
+  { skill: "FAISS" },
+  { skill: "Pinecone" },
+  { skill: "Google Colab" },
+  { skill: "AWS (Cloud Deployment)" },
+  { skill: "Machine Learning Models" },
 ];
 
 const About = () => {
@@ -78,10 +83,22 @@ const About = () => {
               <span className="font-bold text-red-500">
                 Full-Stack Software Developer{" "}
               </span>{" "}
-              at Bay Valley Tech in Modesto, CA. This non-profit organization&apos;s
-              mission is to support their community&apos;s growth and development in
-              the technological field.
+              at Bay Valley Tech in Modesto, CA. This non-profit
+              organization&apos;s mission is to support their community&apos;s
+              growth and development in the technological field.
             </p>
+            <p>
+              I also worked as a{" "}
+              <span className="font-bold text-red-500">
+                Freelance Back-End Developer
+              </span>{" "}
+              for a healthcare startup, where I helped build and deploy a
+              machine learning model to identify diseases from user symptoms
+              using FAISS and Pinecone. This project deepened my experience with
+              cloud technologies like AWS and Google Colab, and strengthened my
+              back-end development skills.
+            </p>
+
             <br />
             <p>
               Not everything in life is about programming, though. I also enjoy

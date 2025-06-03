@@ -7,7 +7,7 @@ const Footer = () => {
       <hr className="w-full h-0.5 mx-auto mt-8 bg-red-500 border-0 rounded"></hr>
       <div className="max-auto p-4 flex flex-col text-center text-neutral-900 md:flex-row md:justify-between">
         <div className="text-neutral-500 dark:text-neutral-100">
-          © 2024 Jose Naranjo
+          © 2025 Jose Naranjo
           <a href="/" className="hover:underline"></a>
         </div>
         <div className="flex flex-row items-center justify-center space-x-2 mb-1">
