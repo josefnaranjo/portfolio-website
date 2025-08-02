@@ -3,22 +3,29 @@
 import { useEffect, useState } from "react";
 
 const TypewriterParagraph = ({ children }: { children: React.ReactNode }) => {
+  const [hasMounted, setHasMounted] = useState(false);
   const [displayedChars, setDisplayedChars] = useState(0);
   const [textArray, setTextArray] = useState<React.ReactNode[]>([]);
 
   useEffect(() => {
-    const flattenedText = flattenChildren(children);
-    setTextArray(flattenedText);
-  }, [children]);
+    setHasMounted(true); // prevent hydration mismatch
+  }, []);
 
   useEffect(() => {
-    if (displayedChars < textArray.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedChars((prev) => prev + 1);
-      }, 15);
-      return () => clearTimeout(timeout);
-    }
-  }, [displayedChars, textArray]);
+    if (!hasMounted) return;
+    const flattenedText = flattenChildren(children);
+    setTextArray(flattenedText);
+  }, [children, hasMounted]);
+
+  useEffect(() => {
+    if (!hasMounted || displayedChars >= textArray.length) return;
+    const timeout = setTimeout(() => {
+      setDisplayedChars((prev) => prev + 1);
+    }, 15);
+    return () => clearTimeout(timeout);
+  }, [displayedChars, textArray, hasMounted]);
+
+  if (!hasMounted) return null;
 
   return (
     <p>
@@ -36,7 +43,7 @@ function flattenChildren(children: React.ReactNode): React.ReactNode[] {
 
   const flatten = (node: React.ReactNode): void => {
     if (typeof node === "string") {
-      node.split("").forEach((char, index) => result.push(char));
+      node.split("").forEach((char) => result.push(char));
     } else if (Array.isArray(node)) {
       node.forEach(flatten);
     } else if (typeof node === "object" && node !== null && "props" in node) {
