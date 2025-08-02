@@ -1,8 +1,10 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-scroll/modules";
+"use client";
+
+import React, { useState, useEffect, useRef } from "react";
+import { Link as ScrollLink } from "react-scroll";
 import { useTheme } from "next-themes";
 import { RiMoonFill, RiSunLine } from "react-icons/ri";
+import { toast } from 'react-hot-toast';
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 
 interface NavItem {
@@ -11,84 +13,198 @@ interface NavItem {
 }
 
 const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: "Home",
-    page: "home",
-  },
-  {
-    label: "About",
-    page: "about",
-  },
-  {
-    label: "Projects",
-    page: "projects",
-  },
+  { label: "Home", page: "home" },
+  { label: "About", page: "about" },
+  { label: "Projects", page: "projects" },
 ];
 
 export default function Navbar() {
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
-  const [navbar, setNavbar] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [active, setActive] = useState<string>("home");
+  const containerRef = useRef<HTMLDivElement | null>(null);
+
+  // Close on outside click
+  useEffect(() => {
+    const handle = (e: MouseEvent) => {
+      if (
+        navbarOpen &&
+        containerRef.current &&
+        !containerRef.current.contains(e.target as Node)
+      ) {
+        setNavbarOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handle);
+    return () => document.removeEventListener("mousedown", handle);
+  }, [navbarOpen]);
+
+  // Scroll spy: update active based on scroll position
+  useEffect(() => {
+    const sections = NAV_ITEMS.map((n) =>
+      document.getElementById(n.page)
+    ).filter(Boolean) as HTMLElement[];
+
+    const onScroll = () => {
+      const scrollY = window.scrollY + 120; // offset for header height
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sec = sections[i];
+        if (sec.offsetTop <= scrollY) {
+          setActive(sec.id);
+          break;
+        }
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const toggleTheme = () => {
+    setTheme(currentTheme === "dark" ? "light" : "dark");
+  };
+  useEffect(() => {
+    if (currentTheme) {
+      toast(`Turned on ${currentTheme === 'dark' ? 'dark' : 'light'} mode`);
+    }
+  }, [currentTheme]);
 
   return (
-    <header className="w-full mx-auto px-4 sm:px-20 fixed top-0 z-50 shadow bg-white dark:bg-stone-900 dark:border-b dark:border-stone-600">
-      <div className="justify-between md:items-center md:flex">
-        <div>
-          <div className="flex items-center py-2 justify-between">
-            <Link className="cursor-pointer" to="home">
-              <div className="md:py-5 md:block">
-                <h2 className="text-2xl font-bold">Jose Francisco Naranjo</h2>
-              </div>
-            </Link>
-            <div className="md:hidden">
-              <button onClick={() => setNavbar(!navbar)}>
-                {navbar ? <IoMdClose size={30} /> : <IoMdMenu size={30} />}
-              </button>
-            </div>
+    <header className="w-full fixed top-0 z-50 backdrop-blur-md bg-white/60 dark:bg-stone-900/80 shadow transition">
+      <div
+        ref={containerRef}
+        className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-2"
+      >
+        <div className="flex items-center gap-2">
+          <ScrollLink
+            to="home"
+            spy
+            smooth
+            offset={-100}
+            duration={500}
+            className="cursor-pointer"
+            onClick={() => setNavbarOpen(false)}
+          >
+            <h2 className="text-xl font-bold select-none">
+              Jose Francisco Naranjo
+            </h2>
+          </ScrollLink>
+        </div>
+
+        <div className="flex items-center gap-4">
+          <a
+            href="/Jose_Naranjo_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-block px-3 py-2 text-sm font-medium cursor-pointer transition text-neutral-900 dark:text-neutral-100 hover:text-red-500"
+            aria-label="Download resume"
+          >
+            Resume
+          </a>
+          {/* desktop links */}
+          <nav className="hidden md:flex gap-4 items-center">
+            {NAV_ITEMS.map((item) => (
+              <ScrollLink
+                key={item.page}
+                to={item.page}
+                spy
+                smooth
+                offset={-100}
+                duration={500}
+                className={`relative px-3 py-2 text-sm font-medium cursor-pointer transition ${
+                  active === item.page
+                    ? "text-red-600"
+                    : "text-neutral-900 dark:text-neutral-100 hover:text-red-500"
+                }`}
+              >
+                {item.label}
+                {active === item.page && (
+                  <span className="absolute left-0 right-0 -bottom-1 h-0.5 bg-red-600 rounded" />
+                )}
+              </ScrollLink>
+            ))}
+
+            <button
+              onClick={toggleTheme}
+              aria-label={`Switch to ${
+                currentTheme === "dark" ? "light" : "dark"
+              } mode`}
+              className="p-2 rounded-md ring-offset-1 ring focus:outline-none focus:ring"
+            >
+              {currentTheme === "dark" ? (
+                <RiSunLine size={22} />
+              ) : (
+                <RiMoonFill size={22} />
+              )}
+            </button>
+          </nav>
+
+          {/* mobile hamburger */}
+          <div className="md:hidden flex items-center">
+            <button
+              aria-label="Toggle menu"
+              onClick={() => setNavbarOpen((o) => !o)}
+              className="p-2 rounded-md focus:outline-none focus:ring"
+            >
+              {navbarOpen ? <IoMdClose size={26} /> : <IoMdMenu size={26} />}
+            </button>
           </div>
         </div>
-        <div>
-          <div
-            className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
-              navbar ? "block" : "hidden"
-            }`}
+      </div>
+
+      {/* mobile menu */}
+      <div
+        className={`md:hidden transition-max-height duration-300 overflow-hidden ${
+          navbarOpen ? "max-h-[400px]" : "max-h-0"
+        }`}
+      >
+        <div className="px-4 pb-4 flex flex-col gap-3">
+          {NAV_ITEMS.map((item) => (
+            <ScrollLink
+              key={item.page}
+              to={item.page}
+              spy
+              smooth
+              offset={-100}
+              duration={500}
+              onClick={() => setNavbarOpen(false)}
+              className={`block px-4 py-2 rounded-md text-base font-medium cursor-pointer transition ${
+                active === item.page
+                  ? "text-red-600"
+                  : "text-neutral-900 dark:text-neutral-100 hover:text-red-500"
+              }`}
+            >
+              {item.label}
+            </ScrollLink>
+          ))}
+          <a
+            href="/Jose_Naranjo_Resume.pdf"
+            onClick={() => setNavbarOpen(false)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block px-4 py-2 rounded-md text-base font-medium text-neutral-900 dark:text-neutral-100 hover:text-red-500"
           >
-            <div className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-              {NAV_ITEMS.map((item, index) => (
-                <Link
-                  key={index}
-                  to={item.page}
-                  className={`block lg:inline-block text-neutral-900 hover:text-neutral-500 dark:text-neutral-100 cursor-pointer transition-all duration-300 ease-in-out shadow-lg hover:shadow-outline bg-white dark:bg-stone-900 dark:hover:bg-stone-800 dark:hover:text-neutral-200 p-3 rounded-md ${
-                    currentTheme === "dark"
-                      ? "dark:hover:bg-stone-800 dark:hover:text-neutral-200"
-                      : "hover:bg-gray-100"
-                  }`}
-                  activeClass="active"
-                  spy={true}
-                  smooth={true}
-                  offset={-100}
-                  duration={500}
-                  onClick={() => setNavbar(!navbar)}
-                >
-                  {item.label}
-                </Link>
-              ))}
+            Resume
+          </a>
+          <div className="mt-2">
+            <button
+              onClick={toggleTheme}
+              aria-label={`Switch to ${
+                currentTheme === "dark" ? "light" : "dark"
+              } mode`}
+              className="flex items-center gap-2 px-4 py-2 bg-gray-400 rounded-md"
+            >
               {currentTheme === "dark" ? (
-                <button
-                  onClick={() => setTheme("light")}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiSunLine size={25} color="black" />
-                </button>
+                <>
+                  <RiSunLine size={20} /> Light Mode
+                </>
               ) : (
-                <button
-                  onClick={() => setTheme("dark")}
-                  className="bg-slate-100 p-2 rounded-xl"
-                >
-                  <RiMoonFill size={25} />
-                </button>
+                <>
+                  <RiMoonFill size={20} /> Dark Mode
+                </>
               )}
-            </div>
+            </button>
           </div>
         </div>
       </div>

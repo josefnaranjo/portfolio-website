@@ -4,6 +4,33 @@ export const metadata = {
     apple: ["/apple-touch-icon.png?v=4"],
     shortcut: ["/apple-touch-icon.png"],
   },
+  title: "Jose Francisco Naranjo – Full-Stack Software Developer",
+  description:
+    "Jose Francisco Naranjo is a Full-Stack Software Developer based in San Joaquin County, CA. Portfolio of projects in Next.js, .NET, AI, and cloud deployments.",
+  openGraph: {
+    title: "Jose Francisco Naranjo – Full-Stack Software Developer",
+    description:
+      "Portfolio showcasing full-stack development, AI research, and cloud projects by Jose Francisco Naranjo.",
+    url: "https://josefnarajo.netlify.app",
+    siteName: "josefnarajo.netlify.app",
+    images: [
+      {
+        url: "https://josefnarajo.netlify.app/selfie.jpg",
+        width: 800,
+        height: 600,
+        alt: "Jose Francisco Naranjo",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Jose Francisco Naranjo – Full-Stack Software Developer",
+    description:
+      "Portfolio showcasing full-stack development, AI research, and cloud projects by Jose Francisco Naranjo.",
+    creator: "@your_twitter_handle_if_any",
+  },
 };
 
 export default function Head() {
