@@ -21,10 +21,9 @@ export default function Navbar() {
   const { systemTheme, theme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
   const [navbarOpen, setNavbarOpen] = useState(false);
-  const [active, setActive] = useState<string>("home");
+  const [active, setActive] = useState<string>("");
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  // Close on outside click
   useEffect(() => {
     const handle = (e: MouseEvent) => {
       if (
@@ -39,22 +38,24 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handle);
   }, [navbarOpen]);
 
-  // Scroll spy: update active based on scroll position
   useEffect(() => {
     const sections = NAV_ITEMS.map((n) =>
       document.getElementById(n.page)
     ).filter(Boolean) as HTMLElement[];
 
     const onScroll = () => {
-      const scrollY = window.scrollY + 120; // offset for header height
+      const scrollY = window.scrollY + 120;
+      let newActive = "";
       for (let i = sections.length - 1; i >= 0; i--) {
         const sec = sections[i];
         if (sec.offsetTop <= scrollY) {
-          setActive(sec.id);
+          newActive = sec.id;
           break;
         }
       }
+      setActive(newActive);
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
@@ -93,10 +94,11 @@ export default function Navbar() {
               <ScrollLink
                 key={item.page}
                 to={item.page}
-                spy
-                smooth
+                spy={true}
+                smooth={true}
                 offset={-100}
                 duration={500}
+                onSetActive={() => setActive(item.page)}
                 className={`relative px-3 py-2 text-sm font-medium cursor-pointer transition ${
                   active === item.page
                     ? "text-red-600"
@@ -157,10 +159,11 @@ export default function Navbar() {
             <ScrollLink
               key={item.page}
               to={item.page}
-              spy
-              smooth
+              spy={true}
+              smooth={true}
               offset={-100}
               duration={500}
+              onSetActive={() => setActive(item.page)}
               onClick={() => setNavbarOpen(false)}
               className={`block px-4 py-2 rounded-md text-base font-medium cursor-pointer transition ${
                 active === item.page
