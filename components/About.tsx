@@ -1,7 +1,13 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import CollapsibleSkills from "./CollapsibleSkills";
-import TypewriterParagraph from "./TypewriterParagraph";
+
+const TypewriterParagraph = dynamic(() => import("./TypewriterParagraph"), {
+  ssr: false,
+});
 
 const About = () => {
   return (
