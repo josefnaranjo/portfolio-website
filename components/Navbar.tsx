@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import { useTheme } from "next-themes";
 import { RiMoonFill, RiSunLine } from "react-icons/ri";
-import { toast } from 'react-hot-toast';
 import { IoMdMenu, IoMdClose } from "react-icons/io";
 
 interface NavItem {
@@ -64,11 +63,6 @@ export default function Navbar() {
   const toggleTheme = () => {
     setTheme(currentTheme === "dark" ? "light" : "dark");
   };
-  useEffect(() => {
-    if (currentTheme) {
-      toast(`Turned on ${currentTheme === 'dark' ? 'dark' : 'light'} mode`);
-    }
-  }, [currentTheme]);
 
   return (
     <header className="w-full fixed top-0 z-50 backdrop-blur-md bg-white/60 dark:bg-stone-900/80 shadow transition">
@@ -93,15 +87,6 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a
-            href="/Jose_Naranjo_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:inline-block px-3 py-2 text-sm font-medium cursor-pointer transition text-neutral-900 dark:text-neutral-100 hover:text-red-500"
-            aria-label="Download resume"
-          >
-            Resume
-          </a>
           {/* desktop links */}
           <nav className="hidden md:flex gap-4 items-center">
             {NAV_ITEMS.map((item) => (
@@ -124,6 +109,14 @@ export default function Navbar() {
                 )}
               </ScrollLink>
             ))}
+            <a
+              href="/Jose_Naranjo_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative px-3 py-2 text-sm font-medium cursor-pointer transition text-neutral-900 dark:text-neutral-100 hover:text-red-500"
+            >
+              Resume
+            </a>
 
             <button
               onClick={toggleTheme}
@@ -180,10 +173,10 @@ export default function Navbar() {
           ))}
           <a
             href="/Jose_Naranjo_Resume.pdf"
-            onClick={() => setNavbarOpen(false)}
             target="_blank"
             rel="noopener noreferrer"
-            className="block px-4 py-2 rounded-md text-base font-medium text-neutral-900 dark:text-neutral-100 hover:text-red-500"
+            onClick={() => setNavbarOpen(false)}
+            className="block px-4 py-2 rounded-md text-base font-medium cursor-pointer transition text-neutral-900 dark:text-neutral-100 hover:text-red-500"
           >
             Resume
           </a>

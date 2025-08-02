@@ -1,15 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 import CollapsibleSkills from "./CollapsibleSkills";
+import dynamic from "next/dynamic";
 
 const TypewriterParagraph = dynamic(() => import("./TypewriterParagraph"), {
   ssr: false,
 });
 
 const About = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <section id="about" className="relative">
       <div className="my-12 pb-12 md:pt-16 md:pb-48">
@@ -29,10 +37,10 @@ const About = () => {
 
             <div className="space-y-4 text-base leading-relaxed">
               <TypewriterParagraph>
-                My name is Jose Francisco Naranjo, and I am a
-                <span className="font-bold"> determined</span>,
-                <span className="font-bold"> ambitious</span>, and
-                <span className="font-bold"> self-motivated</span>{" "}
+                My name is Jose Francisco Naranjo, and I am a{" "}
+                <span className="font-bold">determined</span>,{" "}
+                <span className="font-bold">ambitious</span>, and{" "}
+                <span className="font-bold">self-motivated</span>{" "}
                 first-generation software developer based in the Central Valley
                 of California.
               </TypewriterParagraph>
@@ -40,21 +48,19 @@ const About = () => {
               <TypewriterParagraph>
                 I earned my Bachelor of Science in Computer Science from
                 California State University, Stanislaus, in December 2023. While
-                in college, I worked as an
+                in college, I worked as an{" "}
                 <span className="font-bold text-red-500">
-                  {" "}
-                  undergraduate research associate{" "}
-                </span>
+                  undergraduate research associate
+                </span>{" "}
                 in the computer science department, where I focused on
                 artificial intelligence, data science, and neural networks.
               </TypewriterParagraph>
 
               <TypewriterParagraph>
-                From February 2024 to August 2024, I worked as a
+                From February 2024 to August 2024, I worked as a{" "}
                 <span className="font-bold text-red-500">
-                  {" "}
-                  Full-Stack Software Developer{" "}
-                </span>
+                  Full-Stack Software Developer
+                </span>{" "}
                 at Bay Valley Tech in Modesto, CA, assisting a nonprofit in
                 improving community tech capacity through hands-on web
                 application development and mentorship.
@@ -91,9 +97,9 @@ const About = () => {
               </TypewriterParagraph>
 
               <TypewriterParagraph>
-                My passion for technology has led me to incredible
-                <span className="font-bold text-red-500"> learning </span> and
-                <span className="font-bold text-red-500"> growth</span>, shaping
+                My passion for technology has led me to incredible{" "}
+                <span className="font-bold text-red-500">learning</span> and{" "}
+                <span className="font-bold text-red-500">growth</span>, shaping
                 me into a better technologist. I am excited to see where this
                 passion will lead me, as I'm open to new opportunities.
               </TypewriterParagraph>
