@@ -99,7 +99,7 @@ export default function Navbar() {
                 offset={-100}
                 duration={500}
                 onSetActive={() => setActive(item.page)}
-                className={`relative px-3 py-2 text-sm font-medium cursor-pointer transition ${
+                className={`relative px-4 py-3 text-sm font-medium cursor-pointer transition ${
                   active === item.page
                     ? "text-red-600"
                     : "text-neutral-900 dark:text-neutral-100 hover:text-red-500"
@@ -115,7 +115,7 @@ export default function Navbar() {
               href="/Jose_Naranjo_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative px-3 py-2 text-sm font-medium cursor-pointer transition text-neutral-900 dark:text-neutral-100 hover:text-red-500"
+              className="relative px-4 py-3 text-sm font-medium cursor-pointer transition text-neutral-900 dark:text-neutral-100 hover:text-red-500"
             >
               Resume
             </a>
@@ -125,7 +125,7 @@ export default function Navbar() {
               aria-label={`Switch to ${
                 currentTheme === "dark" ? "light" : "dark"
               } mode`}
-              className="p-2 rounded-md ring-offset-1 ring focus:outline-none focus:ring"
+              className="p-3 rounded-md ring-offset-1 ring focus:outline-none focus:ring"
             >
               {currentTheme === "dark" ? (
                 <RiSunLine size={22} />
@@ -140,9 +140,9 @@ export default function Navbar() {
             <button
               aria-label="Toggle menu"
               onClick={() => setNavbarOpen((o) => !o)}
-              className="p-2 rounded-md focus:outline-none focus:ring"
+              className="p-3 rounded-md focus:outline-none focus:ring"
             >
-              {navbarOpen ? <IoMdClose size={26} /> : <IoMdMenu size={26} />}
+              {navbarOpen ? <IoMdClose size={30} /> : <IoMdMenu size={30} />}
             </button>
           </div>
         </div>
