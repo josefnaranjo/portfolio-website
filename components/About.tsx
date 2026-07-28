@@ -79,7 +79,7 @@ const About = () => {
               </TypewriterParagraph>
 
               <TypewriterParagraph>
-                Outside of engineering, I stay active with heavy resistance
+                Outside of engineering, I stay active with heavy weightlifting
                 training, continuous learning, listening to music, and spending
                 time outdoors.
               </TypewriterParagraph>

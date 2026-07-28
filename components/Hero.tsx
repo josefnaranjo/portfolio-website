@@ -26,12 +26,12 @@ const Hero = () => {
           <p className="text-lg mt-4 mb-6 md:text-2xl">
             I am a{" "}
             <span className="font-semibold text-red-500">
-              Full-Stack Software Developer
+              Software Engineer & CompTIA A+ Certified IT Specialist
             </span>{" "}
-            based in San Joaquin County, CA. I am dedicated to crafting
-            innovative software solutions that make a meaningful difference in
-            Californians’ lives. Let&apos;s work together to create impactful
-            change through technology.
+            based in San Joaquin County, CA. Dedicated to building reliable web
+            applications, optimizing technical infrastructure, and solving
+            complex system challenges. Let&apos;s build something impactful
+            together.
           </p>
           <ScrollLink
             to="projects"
