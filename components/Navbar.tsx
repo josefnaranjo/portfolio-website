@@ -112,7 +112,7 @@ export default function Navbar() {
               </ScrollLink>
             ))}
             <a
-              href="/Jose_Naranjo_Resume.pdf"
+              href="/0001SD_ResumeJoseFNaranjo.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="relative px-4 py-3 text-sm font-medium cursor-pointer transition text-neutral-900 dark:text-neutral-100 hover:text-red-500"
