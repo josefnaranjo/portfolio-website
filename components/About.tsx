@@ -38,70 +38,50 @@ const About = () => {
             <div className="space-y-4 text-base leading-relaxed">
               <TypewriterParagraph>
                 My name is Jose Francisco Naranjo, and I am a{" "}
-                <span className="font-bold">determined</span>,{" "}
-                <span className="font-bold">ambitious</span>, and{" "}
-                <span className="font-bold">self-motivated</span>{" "}
-                first-generation software developer based in the Central Valley
-                of California.
-              </TypewriterParagraph>
-
-              <TypewriterParagraph>
-                I earned my Bachelor of Science in Computer Science from
-                California State University, Stanislaus, in December 2023. While
-                in college, I worked as an{" "}
+                <span className="font-bold">Computer Science graduate</span> and{" "}
                 <span className="font-bold text-red-500">
-                  undergraduate research associate
+                  CompTIA A+ certified IT professional
                 </span>{" "}
-                in the computer science department, where I focused on
-                artificial intelligence, data science, and neural networks.
+                based in Central California. I specialize in full-stack
+                development, system administration, and AI model evaluation.
               </TypewriterParagraph>
 
               <TypewriterParagraph>
-                From February 2024 to August 2024, I worked as a{" "}
+                I earned my B.S. in Computer Science from CSU Stanislaus, where
+                I also worked as an{" "}
                 <span className="font-bold text-red-500">
-                  Full-Stack Software Developer
+                  undergraduate research assistant
                 </span>{" "}
-                at Bay Valley Tech in Modesto, CA, assisting a nonprofit in
-                improving community tech capacity through hands-on web
-                application development and mentorship.
+                focused on technical configuration, data processing, and system
+                workflows across Windows and Linux environments.
               </TypewriterParagraph>
 
               <TypewriterParagraph>
-                I worked as a{" "}
+                My hands-on experience includes working as a{" "}
                 <span className="font-bold text-red-500">
-                  Freelance Back-End Developer
+                  Full-Stack Developer Intern
                 </span>{" "}
-                for a healthcare startup later on, where I helped develop and
-                deploy a machine learning model to identify diseases from user
-                symptoms using FAISS and Pinecone—improving my cloud and
-                back-end skills.
-              </TypewriterParagraph>
-
-              <TypewriterParagraph>
-                Currently, I am working as a{" "}
+                at Bay Valley Tech building web platforms, serving as a{" "}
                 <span className="font-bold text-red-500">
-                  Web Developer and Social Media Manager
+                  Volunteer Web Developer
                 </span>{" "}
-                at The Veritas Institute, where I am prototyping a modern
-                nonprofit website using Next.js and Tailwind. I oversee the
-                design and development of the site to promote ethical reporting
-                in academia.
+                for Inverum Institute, and contributing back-end fixes for
+                healthcare cloud platforms.
               </TypewriterParagraph>
 
               <TypewriterParagraph>
-                Not everything in life is about programming, though. I also
-                enjoy learning about new emerging technologies on different
-                internet platforms. In addition, I love working out, listening
-                to music, and going on hikes occasionally. I need my dose of
-                nature to keep me going!
+                Currently, I work as an{" "}
+                <span className="font-bold text-red-500">
+                  AI Trainer for Multimodal Systems
+                </span>{" "}
+                at Handshake AI, evaluating domain-specific LLMs across web
+                technologies, audio, and computer vision.
               </TypewriterParagraph>
 
               <TypewriterParagraph>
-                My passion for technology has led me to incredible{" "}
-                <span className="font-bold text-red-500">learning</span> and{" "}
-                <span className="font-bold text-red-500">growth</span>, shaping
-                me into a better technologist. I am excited to see where this
-                passion will lead me, as I&apos;m open to new opportunities.
+                Outside of engineering, I stay active with heavy resistance
+                training, continuous learning, listening to music, and spending
+                time outdoors.
               </TypewriterParagraph>
             </div>
           </div>
@@ -115,7 +95,7 @@ const About = () => {
             </h2>
 
             <CollapsibleSkills />
-            <div className="hidden md:block relative">
+            <div className="hidden md:block relative mt-6">
               <Image
                 className="rounded shadow-md"
                 src="/skills.jpg"
